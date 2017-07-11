@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_for @user do |f| %>
+ <div>
+   <%= f.label :name%>
+   <%= f.text_field :name%>
+ <div>
+   <%= f.label :email%>
+   <%= f.email_field :email%>
+ </div>
+ <div>
+   <%= f.label :active%>
+   <%= f.check_box :active%>
+ </div>
+ <div>
+   <%= f.label :name, "Select"%>
+   <%= f.select :name, 1..5%>
+ </div>
+ <div>
+   <%= f.label :name, "Name"%>
+   <%= f.number_field :name, in:1..5%>
+ </div>
+ <div>
+   <%= f.label :updated_at, "Date"%>
+   <%= f.date_field :name%>
+ </div>
+ <div>
+   <%= f.label :updated_at, "Date"%>
+   <%= f.time_field :name%>
+ </div>
+ <div>
+   <%= f.label :updated_at, "Date"%>
+   <%= f.color_field :name%>
+ </div>
+ <div>
+   <%= f.label :updated_at, "Date"%>
+   <%= f.color_field :name%>
+ </div>
+ <div>
+   <%= f.submit "Save"%>
+ </div>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @user.active %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

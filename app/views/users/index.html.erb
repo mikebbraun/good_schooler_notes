@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.active %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
+
+<br><br>
+
+<%= form_tag search_path do %>
+  <%= search_field_tag :thethingyousearchfor %>
+  <%= submit_tag "search" %>
+<% end %>
+
+<h2>Number Helpers</h2>
+<%= number_to_percentage 100 %>
+<%= number_to_phone 5615550123 %>
+<%= number_to_currency 100.00 %>
+<% number = 1234567890.50 %><br>
+Storage size: <%= number_to_human_size number%><br>
+Delimited: <%= number_with_delimiter number %><br>
+Precision: <%= number_with_precision number, precision: 4%>
+
+<h2>Text Helpers</h2>
+<%= pluralize 1, 'radius', 'radii'%>
+<%= pluralize 2, 'radius', 'radii'%>
+
+<h2>Date/Time Helper</h2>
+<%= time_ago_in_words Time.now%><br>
+<%= time_ago_in_words User.first.created_at%>
+
+<h2>Custom Helper</h2>
+<%= boldify('hello world')%>
